@@ -1,7 +1,8 @@
 #include "bbcar_rpc.h"
 RPCFunction rpcStop(&RPC_stop, "stop");
-RPCFunction rpcCtrl(&RPC_goStraight, "goStraight");
+//RPCFunction rpcCtrl(&RPC_goStraight, "goStraight");
 RPCFunction rpcTurn(&RPC_turn, "turn");
+RPCFunction goStraightCalib(&RPC_goStraight, "goStraight");
 
 extern BBCar car;
 
@@ -20,5 +21,11 @@ void RPC_turn (Arguments *in, Reply *out)   {
     int speed = in->getArg<double>();
     double turn = in->getArg<double>();
     car.turn(speed,turn);
+    return;
+}
+
+void RPC_goStraightCalib (Arguments *in, Reply *out ){
+    int speed = in->getArg<double>();
+    car.goStraightCalib(speed);
     return;
 }
