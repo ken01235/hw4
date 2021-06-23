@@ -18,9 +18,9 @@ void BBCar::stop(){
     servo1.set_speed(0);
 }
 
-void BBCar::goStraight( double speed ){\
+void BBCar::goStraight( double speed ){
     servo0.set_factor(1);
-    servo1.set_factor(1);
+    servo1.set_factor(0.37);
     servo0.set_speed(speed);
     servo1.set_speed(-speed);
 }
