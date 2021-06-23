@@ -13,14 +13,14 @@ void BBCar::controlWheel(){
 
 void BBCar::stop(){
     servo0.set_factor(1);
-    servo1.set_factor(1);
+    servo1.set_factor(0.35);
     servo0.set_speed(0);
     servo1.set_speed(0);
 }
 
 void BBCar::goStraight( double speed ){
     servo0.set_factor(1);
-    servo1.set_factor(0.37);
+    servo1.set_factor(0.5);
     servo0.set_speed(speed);
     servo1.set_speed(-speed);
 }
@@ -43,11 +43,11 @@ void BBCar::goStraightCalib ( double speed ){
 void BBCar::turn( double speed, double factor ){
     if(factor>0){
         servo0.set_factor(factor);
-        servo1.set_factor(1);
+        servo1.set_factor(0.5);
     }
     else if(factor<0){
         servo0.set_factor(1);
-        servo1.set_factor(-factor);
+        servo1.set_factor(-factor * 0.5);
     }
     servo0.set_speed(speed);
     servo1.set_speed(-speed);
